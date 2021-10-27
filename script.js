@@ -1,190 +1,125 @@
-// 'use strict';
+// Create a function that takes an array containing only numbers and return the first element.
+function getFirstValue(arr) {
+	
+     let firstElement = arr[0];
+       return firstElement;
+   }
+   console.log (getFirstValue([1, 2, 3]));
+   console.log(getFirstValue([80, 5, 100]));
+   console.log(getFirstValue([-500, 0, 50]));
 
-// function calcAge(birthYear){
-//     const age = 2021- birthYear;
-//     console.log(firstName);
+//    Given two arguments, return an array which contains these two arguments.
 
-//     function printAge(){
-//         const output = `${firstName}, your are ${age}, born in ${birthYear}`;
-//         console.log(output);
-//         if(birthYear>= 1981 && birthYear<=1996)
-//         {
-//             var millinear = true;
-//             //  creating the New variable with same name as outer scope's variable
-//             const firstName='jannu';
-//             // REassingning outer scope's variable 
-//             output= 'NEW OUTPUT!';
-//             const str = `Oh, and your a millinear,${firstName}`;
-//             console.log(str);
+function makePair(num1, num2) 
+{
+ let array= [num1,num2];
+ return array;
+}
+console.log(makePair(1, 2));
+console.log(makePair(51, 21));
+console.log(makePair(512124, 215));
 
-//             function add(a,b){
-//                 return a+b;
-//             }
-           
-//         }
-//         console.log(millinear);
-//         //  console.log (add(2,3));
-        console.log(output);
+// upvotes vs down votes 
+function getVoteCount(upVotes,downVotes) 
+{
+	let VoteCounts = (upVotes+(-downVotes));
+    return VoteCounts;
+}
+console.log(getVoteCount(13,0));
+console.log(getVoteCount(2,33));
+console.log(getVoteCount(132,132));
+
+// Reverse an Array
+
+function reverse (arr)
+{
+    return arr.reverse();
+}
+console.log(reverse([1,2,3,4]));
+
+// Simple array manipulation
+
+function incrementItems(arr) 
+{
+    let array1=[];
+	for (let i = 0; i < arr.length; i++)
+    {
+     array1[i] = arr[i] + 1
+    
     }
-    printAge();
-
-    return age;
+    return array1;
+    
 }
+console.log(incrementItems([0,1,2,3]));
 
-const firstName = 'venkatesh';
-calcAge(1991);
+// can assign variables from arrays.
+const arr = [1, 2, 3, 4, 5, 6];
+let a= arr[0];
+let b = arr[1];
+console.log(a);
+console.log(b);
 
-
-//  HOisting and TDZ 
-
-//  variables
-
-console.log(me);
-
-// console.log(job);
-// console.log(year);
-
-var me = 'venkatesh';
-let job = 'trainee';
-const year= 1998;
-
-//  functions
-console.log(addDecl(2,3));
-// console.log(addExpr(2,3));
-console.log(addArrow);
-// console.log(addArrow(2,3));
-
-function addDecl(a,b){
-    return a+b;
-};
-const  addExpr= function(a,b){
-    return a+b;
-};
-var addArrow =(a, b)=>a+b;
-
-//  example
-console.log(undefined);
-
-if(numProducts) deleteShopingCart();
-
-var numProducts = 10;
-
-function deleteShopingCart(){
-    console.log ('All products detailed');
+// return last element
+function getLastItem(arr) 
+{
+    let lastEl = arr[arr.length-1];
+    return lastEl;
 }
+console.log(getLastItem([1,2,3]));
+console.log(getLastItem(["cat","dog","duck"]));
+console.log(getLastItem([true,false,true]));
 
-var x = 1;
-let y = 2;
-const z = 3;
+// array indexing 
+function valueAt(arr, i) 
+{
+    if (i >= arr.length)
+    {
+    return "Index >= Array length, therefore arr[i] is undefined.";
+    } 
+    else
+    {
+      return arr[Math.floor(i)];
+    }
+      
+  };
+  console.log(valueAt([1, 2, 3, 4, 5, 6], 10 / 2));
+  console.log(valueAt([1, 2, 3, 4, 5, 6], 8.0 / 2));
+  console.log(valueAt([1, 2, 3, 4], 6.535355314 / 2));
+//   convert an array to string 
 
-console.log(x === window.x);
-console.log(y === window.y);
-console.log(z === window.z);
-
-// this keyword
-
-console.log(this);
-
-const calcAge = function(birthYear){
-    console.log(2021-birthYear);
-    console.log(this);
-};
-calcAge(1998);
-const calcAge = (birthYear)=>{
-    console.log(2021-birthYear);
-    console.log(this);
-};
-calcAgeArrow(1980);
-
-const venkatesh = {
-    year:1998,
-    calcAge:function () {
-         console.log(this);
-         console.log(2021-this.year);
-    },
-};
-venkatesh.calcAge();
-
-const matlida ={
-    year:2017,
-}; 
-
-matlida.calcAge= venkatesh.calcAge;
-matlida.calcAge();
-
-const f = venkatesh.calcAge;
-f();
-
-//  Regular Functions Vs.Arrow Functions
-
-var firstName = 'Matilda';
-
-const venkatesh = {
-    firstName : 'jannu',
-    year:1998,
-    calcAge:function () {
-        console.log(this);
-        console.log(2037-this.year);
-        // solutiion 1
-        const self = this;
-        const isMillenar = function () {
-            console.log(self.year >= 1981 && self.year <= 1996 );
-            
-        };
-        //  solution 2
-        const isMillenar = () =>{
-            console.log(this);
-            console.log(this.year >= 1981 && this.year <= 1996);
-        };
-
-
-        isMillenar();
-        
-    },
-
-    greet: ()=> {
-        console.log(this);
-        console.log(`Hey ${this.firstName}`);
-
-    },
-};
-venkatesh.greet();
-venkatesh.calcAge();
-
-//  arguments keyword
-
-const addExpr = function(a,b){
-    console.log(arguments);
-    return a+b;
-};
-addExpr(2,5);
-addExpr(2,5,8,12);
-
-var addArrow= (a,b) => {
-    console.log(arguments);
-    return a+b;
+function arrayToString(arr) 
+{
+	const Array2 = [arr.toString()];
+    return Array2;
 }
-addArrow(2,5,8);
+console.log(arrayToString([1, 2, 3, 4, 5, 6]));
+console.log(arrayToString(["a", "b", "c", "d", "e", "f"]));
+console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"]));
 
+// concating two integer arrays
+function concat(arr1, arr2) 
+{
+    let array3 = arr1.concat(arr2);
+    return array3;
+}
+console.log (concat([1, 3, 5], [2, 6, 8]));
+console.log(concat([7, 8], [10, 9, 1, 1, 2]));
+console.log(concat([4, 5, 1], [3, 3, 3, 3, 3]));
 
-//  primitive 
-
-let age = 30;
-let oldAge = age;
-age = 31;
-console.log(age);
-console.log(old.Age);
-
-
-// reference typs (object) 
-const me ={
-    name:'venkatesh',
-    age:23,
-};
-const friend = me;
-friend.age = 27;
-console.log('friend:', friend);
-console.log('Me', me);
-
-
-
+// _.drop, Drop the First Elements of an Array
+function drop(arr, val) 
+{
+	let Elements1 = (arr.slice(val));
+    return Elements1;
+}
+console.log(drop([1, 2, 3], 1));
+console.log(drop([1, 2, 3], 2));
+console.log(drop([1, 2, 3], 5));
+console.log(drop([1, 2, 3], 0));
+//  find the index
+function findIndex(arr, str) 
+{
+    let position =indexOf(str);
+    return position;
+}
+console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh"));
